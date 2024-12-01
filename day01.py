@@ -1,9 +1,19 @@
+from collections import Counter
+
 def distance(a,b):
     a = sorted(a)
     b = sorted(b)
     sum = 0
     for i,j in zip(a,b):
         sum = sum + abs(i-j)
+    return sum
+
+def similarity(a,b):
+    cb = Counter(b)
+    sum = 0 
+    for al in a:
+        v = cb.get(al,0)
+        sum = sum + (al * v)
     return sum
 
 def readfile():
