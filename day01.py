@@ -31,5 +31,7 @@ first,second = readfile()
 print(first)
 dis = distance(first,second)
 print(f"The distance is {dis}")
+sim = similarity(first,second)
+print(f"The similarity is {sim}")
 
         
