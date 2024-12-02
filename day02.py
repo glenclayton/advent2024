@@ -12,4 +12,24 @@ def is_safe(row):
     return rv
     
 
+def readfile():
+    text_file = open("day02_input.txt", "r")
+    lines = text_file.readlines()
+    rows = []
+    for line in lines:
+        rows.append(list(map(int,line.split())))
+    return rows
 
+def list_safe_count(rows):
+    safe = 0
+    for row in rows:
+        if is_safe(row):
+            safe=safe+1
+    return safe
+
+rows = readfile()
+safes = list_safe_count(rows)
+print(f"Number of safe rows = {safes}")
+
+
+    
