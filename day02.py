@@ -37,9 +37,19 @@ def list_safe_count(rows):
             safe=safe+1
     return safe
 
+def list_tolerate_safe_count(rows):
+    safe = 0
+    for row in rows:
+        if tolerate_is_safe(row):
+            safe=safe+1
+    return safe
+
 rows = readfile()
 safes = list_safe_count(rows)
 print(f"Number of safe rows = {safes}")
+
+tolerate_safes = list_tolerate_safe_count(rows)
+print(f"Number of safe rows(tolerant) = {tolerate_safes}")
 
 
     
