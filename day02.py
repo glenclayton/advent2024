@@ -10,7 +10,17 @@ def is_safe(row):
     if ((max_diff<4) and (min_diff>0)) or ((min_diff>-4) and max_diff<0):
         rv = True
     return rv
-    
+
+def tolerate_is_safe(row):
+    for i in range(len(row)):
+        newrow=row.copy()
+        del newrow[i]
+        rv = is_safe(newrow)
+        if rv:
+            return rv
+    return False
+
+
 
 def readfile():
     text_file = open("day02_input.txt", "r")
