@@ -7,7 +7,12 @@ def extract_tuple(row, c):
     idx = row.index('mul(',c)
     idy = row.index(')',idx+4)
     ts = row[idx+4:idy]
-    matches = re.finditer(regex,ts,re.MULTILINE)
+    thematch = re.match(regex,ts)
+    if thematch != None:
+        a = thematch.group(1)
+        b = thematch.group(2)
+        return (int(a),int(b))
+    return (0,0)
     
 
 

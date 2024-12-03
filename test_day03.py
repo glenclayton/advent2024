@@ -1,4 +1,16 @@
-from day03 import extract_mul
+from day03 import extract_mul,extract_tuple
+
+def test_extract_tuple():
+    row='xmul(2,3)y'
+    rv = extract_tuple(row,0)
+    assert rv == (2,3)
+    row='xmul(2 ,3)y'
+    rv = extract_tuple(row,0)
+    assert rv == (0,0)
+    row='xmul(2,3y'
+    rv = extract_tuple(row,0)
+    assert rv == (0,0)
+
 
 def test_extract_mul():
     data = 'xmul(2,4)%&mul[3,7]!@^do_not_mul(5,5)+mul(32,64]then(mul(11,8)mul(8,5))'
