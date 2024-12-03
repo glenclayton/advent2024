@@ -4,8 +4,10 @@ import re
 
 def extract_tuple(row, c):
     regex = r"^(\d+),(\d+)$"
-    idx = row.index('mul(',c)
-    idy = row.index(')',idx+4)
+    idx = row.find('mul(',c)
+    idy = row.find(')',idx+4)
+    if idx<0 or idy<0 :
+        return (0,0)
     ts = row[idx+4:idy]
     thematch = re.match(regex,ts)
     if thematch != None:

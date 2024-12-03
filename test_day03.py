@@ -10,6 +10,9 @@ def test_extract_tuple():
     row='xmul(2,3y'
     rv = extract_tuple(row,0)
     assert rv == (0,0)
+    row='xmul(2,3x)y'
+    rv = extract_tuple(row,0)
+    assert rv == (0,0)
 
 
 def test_extract_mul():
