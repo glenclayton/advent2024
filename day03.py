@@ -29,6 +29,18 @@ def extract_mul(row):
         print(f"{t} found, next pos {i}")
     return c
     
-    
+def readfile():
+    text_file = open("day03_input.txt", "r")
+    rows = text_file.readlines()
+    return rows
+
+rows = readfile()
+print(len(rows))
+row = ''.join(rows)
+print(row)
+val = extract_mul(row)
+print(f"Value is {val}")
+
+
 
 
